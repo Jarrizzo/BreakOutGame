@@ -1,23 +1,23 @@
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Rectangle;
 import java.util.ArrayList;
 
 public class BrickCollection {
+	Ball ball;
 
 	ArrayList <Brick> BC = new ArrayList<>();
 
 	
-	public BrickCollection () {
-		
+	public BrickCollection (Ball ball) {
+		this.ball = ball;
 		BrickCreation();
-	
 	}
 	
 	
 	public void update (Keyboard keyboard) {
-		
+		checkCollision();
 
-			
 		}
 		
 	
@@ -45,6 +45,16 @@ public class BrickCollection {
 		}	
 		
 	}
-	
-	
+	private void checkCollision() {
+		
+		for(Brick B: BC) {
+			Rectangle ballbox = new Rectangle(ball.getX(),ball.getY(),ball.getWidth(),ball.getHeight());
+			Rectangle brickbox = new Rectangle(B.getX(),B.getY(),B.getWidth(),B.getHeight());
+			
+			if(brickbox.intersects(ballbox)) {
+				ball.setYSpeed(-(ball.getYSpeed()));					BC.remove(B);
+				break;
+			}	
+		}
+	}
 }

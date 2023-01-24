@@ -7,10 +7,9 @@ public class Game {
 	BallBat BB;
 	
 	public Game(GameBoard board) {
-
 		ball = new Ball(C.BoardWidth/2 -5, C.BoardHeight-50, C.BallSize, C.BallSize);
-		BC = new BrickCollection();
-		BB = new BallBat(350, 565);
+		BB = new BallBat(350, 565, ball);
+		BC = new BrickCollection(ball);
 	}
 
 	public void update(Keyboard keyboard) {
@@ -27,4 +26,5 @@ public class Game {
 		BC.draw(graphics);
 		BB.draw(graphics);
 	}
+	
 }

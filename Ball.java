@@ -4,9 +4,8 @@ import java.awt.Rectangle;
 
 public class Ball extends Sprite{
 	
-	int ySpeed = -5;
-	int xSpeed = -3;
-	BallBat ballbat = new BallBat(0, 0);
+	private int ySpeed = -3;
+	private int xSpeed = -3;
 
 	public Ball(int x, int y, int width, int height) {
 		super(x, y, width, height);
@@ -14,16 +13,16 @@ public class Ball extends Sprite{
 
 	@Override
 	public void update(Keyboard keyboard) {
-		
+
 		WallCollision();
 		move();
-		checkBatCollision(ballbat);
-		
 	}
+
 	@Override
 	public void draw(Graphics2D graphics) {
 		graphics.setColor(Color.WHITE);
 		graphics.fillOval(getX(), getY(), getWidth(), getHeight());
+		
 	}
 	
 	
@@ -42,7 +41,6 @@ public class Ball extends Sprite{
 		
 		xSpeed = 1;
 	}
-	
 	private void WallCollision () {
 		
 		if (getY( ) <= 0 || getY() >= 600-C.BallSize ) {
@@ -54,19 +52,18 @@ public class Ball extends Sprite{
 			xSpeed = -xSpeed;
 		}
 	}
-	private void checkBatCollision (BallBat BB) {
-		
-		Rectangle batBox = new Rectangle(BB.getX(),BB.getY(), BB.getWidth(), BB.getHeight());
-		Rectangle ballBox = new Rectangle(getX(),getY(),getWidth(),getHeight());
-		
-		if(batBox.intersects(ballBox))
-			ySpeed = -ySpeed;
-		
-	}
-	
-	
 
-		
-	
+	public void setYSpeed(int ySpeed) {
+		this.ySpeed = ySpeed;
+	}
+	public int getYSpeed() {
+		return this.ySpeed;
+	}
+	public void setXSpeed(int xSpeed) {
+		this.xSpeed = xSpeed;
+	}
+	public int getXSpeed() {
+		return this.xSpeed;
+	}
 
 }
