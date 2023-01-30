@@ -1,18 +1,11 @@
 import java.awt.Color;
 import java.awt.Graphics2D;
 
-public class Brick extends Sprite{
+public class TopWall extends Sprite{
 
-	public Color color;
-	public int HitCount;
-	
-	public Brick(int x, int y, int width, int height, Color color) {
+	public TopWall(int x, int y, int width, int height) {
 		super(x, y, width, height);
-		this.color = color;
-		this.HitCount = HitCount;
 	}
-
-
 
 	@Override
 	public void update(Keyboard keyboard) {
@@ -21,6 +14,10 @@ public class Brick extends Sprite{
 
 	@Override
 	public void draw(Graphics2D graphics) {
+		
+		graphics.setColor(Color.white);
+		graphics.fillRect(0, 90, 800, 5);
+		
 		
 	}
 

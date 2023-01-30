@@ -9,3 +9,10 @@
 /Keyboard.class
 /Program.class
 /Sprite.class
+/GameState.class
+/TopWall.class
+/Score.class
+/Lifes.class
+/ScoreAndLife.class
+/Life.class
+/ScoreBoard.class

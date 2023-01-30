@@ -5,12 +5,14 @@ import java.util.ArrayList;
 
 public class BrickCollection {
 	Ball ball;
+	ScoreBoard score;
 
 	ArrayList <Brick> BC = new ArrayList<>();
 
 	
-	public BrickCollection (Ball ball) {
+	public BrickCollection (Ball ball,ScoreBoard score) {
 		this.ball = ball;
+		this.score = score;
 		BrickCreation();
 	}
 	
@@ -34,7 +36,7 @@ public class BrickCollection {
 		
 		for(int i = 0; i < C.NumberOfBricks; i++) {
 			int x =15 + i % 14 * 55;
-			int y = 10 + i / 14 * 25;
+			int y = 100 + i / 14 * 25;
 			
 			if(i < 28)
 			BC.add( new Brick(x, y, C.BrickWidth, C.BrickHeight, Color.RED));
@@ -52,8 +54,20 @@ public class BrickCollection {
 			Rectangle brickbox = new Rectangle(B.getX(),B.getY(),B.getWidth(),B.getHeight());
 			
 			if(brickbox.intersects(ballbox)) {
-				ball.setYSpeed(-(ball.getYSpeed()));					BC.remove(B);
-				break;
+				ball.setYSpeed(-(ball.getYSpeed())); 
+				if(B.color == Color.BLUE) {
+					score.setScore(score.getScore()+10);
+					B.color = Color.WHITE;
+				}	
+				else if(B.color == Color.WHITE) {
+					score.setScore(score.getScore()+20);
+					B.color = Color.RED; 
+				}	
+				else if(B.color == Color.RED ) {
+					score.setScore(score.getScore()+30);
+					BC.remove(B);
+					break;
+				}
 			}	
 		}
 	}

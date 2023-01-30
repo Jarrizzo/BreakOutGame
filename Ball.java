@@ -4,9 +4,11 @@ import java.awt.Rectangle;
 
 public class Ball extends Sprite{
 	
-	private int ySpeed = -3;
-	private int xSpeed = -3;
-
+	private int ySpeed = -C.BALLSPEED;
+	private int xSpeed = -C.BALLSPEED;
+	GameState  gameState;
+	Game game;
+	
 	public Ball(int x, int y, int width, int height) {
 		super(x, y, width, height);
 	}
@@ -43,7 +45,7 @@ public class Ball extends Sprite{
 	}
 	private void WallCollision () {
 		
-		if (getY( ) <= 0 || getY() >= 600-C.BallSize ) {
+		if (getY( ) /*<= 0 || getY() >*/<= 105-C.BallSize ) {
 			
 			ySpeed = -ySpeed;
 		}
@@ -51,6 +53,7 @@ public class Ball extends Sprite{
 			
 			xSpeed = -xSpeed;
 		}
+
 	}
 
 	public void setYSpeed(int ySpeed) {
