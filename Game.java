@@ -21,13 +21,13 @@ public class Game {
 
 	public void update(Keyboard keyboard) {
 		
-		
+		life.update(keyboard);
 		if(keyboard.isKeyDown(Key.Space)) {
 			gamestate = GameState.PLAY;
 		}	
-		if(life.getLifes() == 0) {
+		/*if(life.getLifes() == 0) {
 			gamestate = GameState.LOST;
-		}	
+		}	*/
 		if(gamestate == GameState.PLAY) {
 			ball.update(keyboard);
 			BC.update(keyboard);

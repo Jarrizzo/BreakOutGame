@@ -19,7 +19,7 @@ public class BrickCollection {
 	
 	public void update (Keyboard keyboard) {
 		checkCollision();
-
+		
 		}
 		
 	

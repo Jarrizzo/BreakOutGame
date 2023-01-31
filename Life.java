@@ -7,12 +7,15 @@ public class Life extends Sprite{
 
 	public Life(int x, int y, int width, int height) {
 		super(x, y, width, height);
-		
 	}
 
 	@Override
 	public void update(Keyboard keyboard) {
+		//Test att styra Gamestate från ball
 		
+		/*if(Life == 0)
+			game.gamestate = GameState.LOST;*/
+
 		
 	}
 
